@@ -6,7 +6,6 @@
 
     --light-color: #A65D85;
     --dark-color: #68328C;
-    --body-color: #D9D2D0;
     --heading-color: #D9D2D0;
     --contrast-color: #BF7463;
 }
@@ -40,6 +39,7 @@ a {
 }
 
 a:hover{
+    color: var(--dark-color);
     text-decoration-color: var(--dark-color);
 }
 
@@ -124,3 +124,36 @@ body#portfolio ul#portfolioItems {
 body#portfolio ul#portfolioItems li img {
     max-width: 100%;
 }
+
+#flex-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#lCol {
+    flex: 0 1 50%
+}
+
+#rCol {
+    flex: 0 1 50%
+}
+
+.l-catergory{
+    background-color: rgb(217, 210, 208, 0.4);
+    margin-right: 10px;
+}
+
+.r-catergory{
+    background-color: rgb(217, 210, 208, 0.4);
+    margin-left: 10px;
+}
+
+#about {
+    background-color: rgb(217, 210, 208, 0.4);
+}
+
+/* 
+#educationList {
+    list-style-type: none;
+} */
