@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@300&display=swap');
 
+/* <------- Universal CSS -------> */
 :root {
     --vertical-space: 2rem;
     --horizontal-space: 3rem;
@@ -8,7 +9,7 @@
     --dark-color: #68328C;
     --heading-color: #D9D2D0;
     --contrast-color: #BF7463;
-
+    
     color: var(--heading-color);
 }
 
@@ -44,32 +45,28 @@ a:hover{
     text-decoration-color: var(--dark-color);
 }
 
-body#about img {
-    height: 15em;
-    display: inline;
-    margin-right: var(--horizontal-space);
-}
-
-@media screen and (min-width: 25em) {
-    body#about img {
-        float: left;
-        margin-bottom: var(--vertical-space);
-    }
-}
-
 p {
     max-width: 50em;
 }
+
+/* All of the pages use the CSS Grid-System for layout.
+The body acts as the Grid Container, with the children serving
+as the Grid Items. */
 body {
-    display: grid;
+
+    /* Where the CSS-layout gets defined*/
+    display: grid; 
+    /* Specifies the layout using the named grid items */
     grid-template-areas: "head head"
                           "nav nav"
                           "main main"
                           "foot foot";
+    /* Defines the Containers's number of columns/rows and optionally the width of each column */
     grid-template-columns: 1fr 4fr;
     grid-template-rows: auto auto 1fr auto;
 
 }
+
 
 @media screen and (min-width: 25em){
     body {
@@ -115,9 +112,25 @@ header h1, footer h1 {
     margin: 0;
 }
 
+/* <------- About Page CSS -------> */
+body#about img {
+    height: 15em;
+    display: inline;
+    margin-right: var(--horizontal-space);
+}
+
+@media screen and (min-width: 25em) {
+    body#about img {
+        float: left;
+        margin-bottom: var(--vertical-space);
+    }
+}
+
+/* <------- Portfolio Page CSS -------> */
 body#portfolio ul#portfolioItems {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     flex: 1;
     list-style-type: none;
     padding: 0;
@@ -131,34 +144,14 @@ body#portfolio ul#portfolioItems {
 }
 
 body#portfolio ul#portfolioItems li img {
-    max-width: 75%;
+    max-width: 50%;
     margin-left: -0.05em;
 }
 
-#flex-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+/* <------- Resume Page CSS -------> */
+
+/* <------- For Javascript -------> */
+.transition {
+    transition: color 0.9s;
+    color: black;
 }
-
-#lCol {
-    flex: 0 1 50%
-}
-
-#rCol {
-    flex: 0 1 50%
-}
-
-.l-catergory{
-    background-color: rgb(217, 210, 208, 0.4);
-    margin-right: 10px;
-    padding-left: 5px;
-}
-
-.r-catergory{
-    background-color: rgb(217, 210, 208, 0.4);
-    margin-left: 10px;
-}
-
-
-
