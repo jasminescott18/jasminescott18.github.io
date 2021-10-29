@@ -27,8 +27,42 @@ rhit.AboutController = class {
 			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
 			transitionEffect("#aboutParagraphs", "resizing-text-reverse", true, 500);
 			transitionEffect("#aboutImg", "resizing-img-reverse", true, 1000);
-			transitionEffect("#aboutHeader", "resizing-header-reverse", true, 1500);
-			redirect();
+			transitionEffect("#header", "resizing-header-reverse", true, 1500);
+			redirect("portfolio.html");
+		});
+
+		document.querySelector("#resumeLink").addEventListener("click", (event) => {
+			console.log("CLICK");
+			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
+			transitionEffect("#aboutParagraphs", "resizing-text-reverse", true, 500);
+			transitionEffect("#aboutImg", "resizing-img-reverse", true, 1000);
+			transitionEffect("#header", "resizing-header-reverse", true, 1500);
+			redirect("resume.html");
+		});
+	}
+}
+
+rhit.PortfolioController = class {
+	constructor() {
+		transitionEffect("#portfolioHeader", "resizing-header", false, 3000);
+		transitionEffect("#portfolioContent", "resizing-img", false, 6000);
+		transitionEffect("footer", "fade-in-footer", false, 9000);
+
+		
+		document.querySelector("#aboutLink").addEventListener("click", (event) => {
+			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
+			transitionEffect("#portfolioContent", "resizing-img-reverse", true, 500);
+			transitionEffect("#portfolioHeader", "resizing-header-reverse", true, 1000);
+			transitionEffect("#header", "resizing-header-reverse", true, 1500);
+			redirect("index.html");
+		});
+
+		document.querySelector("#resumeLink").addEventListener("click", (event) => {
+			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
+			transitionEffect("#portfolioContent", "resizing-img-reverse", true, 500);
+			transitionEffect("#portfolioHeader", "resizing-header-reverse", true, 1000);
+			transitionEffect("#header", "resizing-header-reverse", true, 1500);
+			redirect("resume.html");
 		});
 
 	}
@@ -49,9 +83,9 @@ const transitionEffect = async (element, className, reverse, mil) => {
 	}
 };
 
-const redirect = async () => {
+const redirect = async (page) => {
 	await delay(3000);
-	window.location.href = "portfolio.html";
+	window.location.href = page;
 }
 
 // https://stackoverflow.com/questions/14226803/wait-5-seconds-before-executing-next-line
@@ -72,6 +106,10 @@ rhit.main = function () {
 
 	if (document.querySelector("#aboutPage")) {
 		new rhit.AboutController();
+	}
+
+	if (document.querySelector("#portfolioPage")) {
+		new rhit.PortfolioController();
 	}
 
 

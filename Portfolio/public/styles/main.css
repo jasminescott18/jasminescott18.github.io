@@ -9,6 +9,8 @@
     --dark-color: #68328C;
     --heading-color: #D9D2D0;
     --contrast-color: #BF7463;
+    --darker-color: #7a3f32;
+    --high-color: #f0d0c7;
 
     --primary-font: 'Raleway', sans-serif;
     --secondary-font: 'Open Sans', sans-serif;
@@ -17,7 +19,7 @@
 }
 
 body {
-    background-color: #f0d0c7;
+    background-color: var(--high-color);
 }
 
 .navbar {
@@ -43,11 +45,16 @@ header {
     color: white;
 }
 
+.nav .nav-item:hover {
+    color: var(--darker-color);
+    text-decoration: underline var(--darker-color);
+}
+
 .nav {
     gap: 30px;
 }
 
-header>h1 {
+#header {
     line-height: 1.2;
     font-size: 4rem;
     color: var(--contrast-color);
@@ -55,8 +62,61 @@ header>h1 {
     margin-bottom: 30px;
 }
 
-p {
-    margin: 30px 10px 0px;
+footer {
+    font-family: var(--primary-font);
+    color: #9e5646;
+    font-size: 14px;
+}
+
+
+/* <------- About Page CSS -------> */
+.about-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+#about p:nth-of-type(3) {
+    margin-bottom: 40px;
+}
+
+#aboutPage img {
+    width: 150px;
+}
+
+#aboutImg {
+    text-align: center;
+}
+
+
+/* <-------  Page CSS -------> */
+
+
+#portfolioHeader {
+    text-align: center;
+    color: var(--darker-color);
+    font-family: var(--primary-font);
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+#portfolio ul {
+    text-align: center;
+    list-style-type: none;
+
+}
+
+.portfolio-flex {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#portfolio img {
+    width: 600px;
+}
+
+#portfolio p {
+    margin: 20px 10px 10px;
     text-align: center;
     color: #9e5646;
     font-family: var(--secondary-font);
@@ -68,35 +128,40 @@ p {
     padding: 15px;
 }
 
-#aboutPage img {
-    width: 150px;
 
-}
+/* <------- Media Queries -------> */
 
-#aboutImg {
-    text-align: center;
-}
-
-footer {
-    font-family: var(--primary-font);
-    color: #9e5646;
-    font-size: 14px;
-}
-
-/* All of the pages use the CSS Grid-System for layout.
-The body acts as the Grid Container, with the children serving
-as the Grid Items. */
-.div-grid {
-
-    /* Where the CSS-layout gets defined*/
-    display: grid;
-    /* Specifies the layout using the named grid items */
-    /* grid-template-areas:  "main main"
+@media screen and (min-width: 800px) {
+    .about-grid {
+        /* Where the CSS-layout gets defined*/
+        display: grid;
+        /* Specifies the layout using the named grid items */
+        /* grid-template-areas:  "main main"
                           "foot foot"; */
-    /* Defines the Containers's number of columns/rows and optionally the width of each column */
-    grid-template-columns: auto auto auto;
+        /* Defines the Containers's number of columns/rows and optionally the width of each column */
+        grid-template-columns: auto auto auto;
 
+    }
+
+    #about p {
+        margin: 30px 10px 50px;
+        text-align: center;
+        color: #9e5646;
+        font-family: var(--secondary-font);
+        line-height: 1.6;
+        font-size: 14px;
+        background-color: rgba(250, 250, 250, 0.7);
+        border: 1px #9e5646 solid;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    #about p:nth-of-type(3) {
+        margin-bottom: 50px;
+    }
 }
+
+/* <------- Animation CSS -------> */
 
 .hidden {
     display: none;
