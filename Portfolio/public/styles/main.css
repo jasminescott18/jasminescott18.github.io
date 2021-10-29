@@ -75,8 +75,21 @@ footer {
     flex-direction: column;
 }
 
+#about p {
+    margin: 15px 10px 0px;
+    text-align: center;
+    color: #9e5646;
+    font-family: var(--secondary-font);
+    line-height: 1.6;
+    font-size: 14px;
+    background-color: rgba(250, 250, 250, 0.7);
+    border: 1px #9e5646 solid;
+    border-radius: 20px;
+    padding: 15px;
+}
+
 #about p:nth-of-type(3) {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 #aboutPage img {
@@ -88,9 +101,7 @@ footer {
 }
 
 
-/* <-------  Page CSS -------> */
-
-
+/* <------- Portfolio Page CSS -------> */
 #portfolioHeader {
     text-align: center;
     color: var(--darker-color);
@@ -105,7 +116,7 @@ footer {
 
 }
 
-.portfolio-flex {
+.flex-container {
     display: flex;
     flex-direction: column;
 
@@ -128,6 +139,36 @@ footer {
     padding: 15px;
 }
 
+#portfolioContent h3 {
+    color: #9e5646;
+    font-style: italic;
+}
+
+
+
+/* <------- Resume Page CSS -------> */
+#resume h2 {
+    line-height: 1.2;
+    color: var(--contrast-color);
+    font-family: var(--primary-font);
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#resume #resumePage ul {
+    margin: 0px 10px 10px;
+    text-align: center;
+    color: #9e5646;
+    font-family: var(--secondary-font);
+    line-height: 1.6;
+    font-size: 14px;
+    background-color: rgba(250, 250, 250, 0.7);
+    border: 1px #9e5646 solid;
+    border-radius: 20px;
+    padding: 15px;
+    list-style-type: none;
+}
 
 /* <------- Media Queries -------> */
 

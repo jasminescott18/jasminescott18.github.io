@@ -21,6 +21,9 @@ rhit.AboutController = class {
 		transitionEffect("#aboutParagraphs", "resizing-text", false, 6000);
 		transitionEffect("footer", "fade-in-footer", false, 9000);
 
+		const link = document.querySelector("#aboutLink");
+		link.style.setProperty("color", "#7a3f32");
+		link.style.setProperty("text-decoration", "none");
 
 		document.querySelector("#portfolioLink").addEventListener("click", (event) => {
 			console.log("CLICK");
@@ -44,15 +47,19 @@ rhit.AboutController = class {
 
 rhit.PortfolioController = class {
 	constructor() {
-		transitionEffect("#portfolioHeader", "resizing-header", false, 3000);
+		transitionEffect("#portfolioHeader", "resizing-text", false, 3000);
 		transitionEffect("#portfolioContent", "resizing-img", false, 6000);
 		transitionEffect("footer", "fade-in-footer", false, 9000);
+
+		const link = document.querySelector("#portfolioLink");
+		link.style.setProperty("color", "#7a3f32");
+		link.style.setProperty("text-decoration", "none");
 
 		
 		document.querySelector("#aboutLink").addEventListener("click", (event) => {
 			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
 			transitionEffect("#portfolioContent", "resizing-img-reverse", true, 500);
-			transitionEffect("#portfolioHeader", "resizing-header-reverse", true, 1000);
+			transitionEffect("#portfolioHeader", "resizing-text-reverse", true, 1000);
 			transitionEffect("#header", "resizing-header-reverse", true, 1500);
 			redirect("index.html");
 		});
@@ -60,11 +67,36 @@ rhit.PortfolioController = class {
 		document.querySelector("#resumeLink").addEventListener("click", (event) => {
 			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
 			transitionEffect("#portfolioContent", "resizing-img-reverse", true, 500);
-			transitionEffect("#portfolioHeader", "resizing-header-reverse", true, 1000);
+			transitionEffect("#portfolioHeader", "resizing-text-reverse", true, 1000);
 			transitionEffect("#header", "resizing-header-reverse", true, 1500);
 			redirect("resume.html");
 		});
 
+	}
+}
+
+rhit.ResumeController = class {
+	constructor() {
+		transitionEffect("#resumeContent", "resizing-text", false, 3000);
+		transitionEffect("footer", "fade-in-footer", false, 6000);
+
+		const link = document.querySelector("#resumeLink");
+		link.style.setProperty("color", "#7a3f32");
+		link.style.setProperty("text-decoration", "none");
+
+		document.querySelector("#aboutLink").addEventListener("click", (event) => {
+			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
+			transitionEffect("#resumeContent", "resizing-text-reverse", true, 500);
+			transitionEffect("#header", "resizing-header-reverse", true, 1500);
+			redirect("index.html");
+		});
+
+		document.querySelector("#portfolioLink").addEventListener("click", (event) => {
+			transitionEffect("footer", "fade-in-footer-reverse", true, 0);
+			transitionEffect("#resumeContent", "resizing-text-reverse", true, 500);
+			transitionEffect("#header", "resizing-header-reverse", true, 1500);
+			redirect("portfolio.html");
+		});
 	}
 }
 
@@ -110,6 +142,10 @@ rhit.main = function () {
 
 	if (document.querySelector("#portfolioPage")) {
 		new rhit.PortfolioController();
+	}
+
+	if (document.querySelector("#resumePage")) {
+		new rhit.ResumeController();
 	}
 
 
