@@ -9,149 +9,174 @@
     --dark-color: #68328C;
     --heading-color: #D9D2D0;
     --contrast-color: #BF7463;
-    
+
+    --primary-font: 'Raleway', sans-serif;
+    --secondary-font: 'Open Sans', sans-serif;
+
     color: var(--heading-color);
 }
 
 body {
-    font-size: 18px;
-    line-height: 1.5;
-    font-family: 'Open Sans', sans-serif;
-    background-image: linear-gradient(282deg, rgba(100, 58, 138, 0.5) 0%, rgba(100, 58, 138, 0.5) 14.286%,
-    rgba(125, 75, 135, 0.5) 14.286%, rgba(125, 75, 135, 0.5) 28.572%,rgba(150, 92, 132, 0.5) 28.572%,
-     rgba(150, 92, 132, 0.5) 42.858%,rgba(176, 109, 129, 0.5) 42.858%, rgba(176, 109, 129, 0.5) 57.144%,
-     rgba(201, 126, 125, 0.5) 57.144%, rgba(201, 126, 125, 0.5) 71.43%,rgba(226, 143, 122, 0.5) 71.43%,
-      rgba(226, 143, 122, 0.5) 85.716%,rgba(251, 160, 119, 0.5) 85.716%, rgba(251, 160, 119, 0.5) 100.002%),
-      linear-gradient(247deg, rgb(86, 8, 174) 0%, rgb(86, 8, 174) 14.286%,rgb(101, 26, 154) 14.286%, 
-      rgb(101, 26, 154) 28.572%,rgb(117, 43, 135) 28.572%, rgb(117, 43, 135) 42.858%,rgb(132, 61, 115) 42.858%, 
-      rgb(132, 61, 115) 57.144%,rgb(147, 79, 95) 57.144%, rgb(147, 79, 95) 71.43%,rgb(163, 96, 76) 71.43%,
-       rgb(163, 96, 76) 85.716%,rgb(178, 114, 56) 85.716%, rgb(178, 114, 56) 100.002%);
-    
+    background-color: #f0d0c7;
 }
 
+.navbar {
+    background-color: var(--contrast-color);
+    justify-content: center;
+}
 
-h1, h2, h3{
+.page-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    justify-content: center;
+    align-content: center;
+}
+
+header {
+    text-align: center;
+}
+
+.nav-tabs .nav-link {
+    font-family: var(--secondary-font);
+    color: white;
+}
+
+.nav {
+    gap: 30px;
+}
+
+header > h1 {
     line-height: 1.2;
-    font-family: 'Raleway', sans-serif;
-}
-
-a {
-    color: var(--body-color);
-    text-decoration-color: var(--light-color);
-}
-
-a:hover{
-    color: var(--dark-color);
-    text-decoration-color: var(--dark-color);
+    font-size: 4rem;
+    color: var(--contrast-color);
+    font-family: var(--primary-font);
+    margin-bottom: 30px;
 }
 
 p {
-    max-width: 50em;
+    margin: 30px 10px 0px;
+    text-align: center;
+    color: #9e5646;
+    font-family: var(--secondary-font);
+    line-height: 1.6;
+    font-size: 14px;
+    background-color: rgba(250, 250, 250, 0.7);
+    border: 1px #9e5646 solid;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+#aboutPage img {
+    width: 150px;
+    
+}
+
+#aboutImg {
+    text-align: center;
+}
+
+footer {
+    font-family: var(--primary-font);
+    color: #9e5646;
+    font-size: 14px;
 }
 
 /* All of the pages use the CSS Grid-System for layout.
 The body acts as the Grid Container, with the children serving
 as the Grid Items. */
-body {
+.div-grid {
 
     /* Where the CSS-layout gets defined*/
     display: grid; 
     /* Specifies the layout using the named grid items */
-    grid-template-areas: "head head"
-                          "nav nav"
-                          "main main"
-                          "foot foot";
+    /* grid-template-areas:  "main main"
+                          "foot foot"; */
     /* Defines the Containers's number of columns/rows and optionally the width of each column */
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: auto auto auto;
 
 }
 
+.hidden {
+    display: none;
+}
 
-@media screen and (min-width: 25em){
-    body {
-        grid-template-areas: "head head"
-                              "nav main"
-                              "foot foot";
-        grid-template-rows: auto 1fr auto;
+.resizing-header {
+    animation-name: resizing-header;
+    animation-delay: 0s;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.resizing-img {
+    animation-name: resizing-img;
+    animation-delay: 0s;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.resizing-text {
+    animation-name: resizing-text;
+    animation-delay: 0s;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.fade-in-footer {
+    animation-name: fade-in-footer;
+    animation-delay: 0s;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes resizing-header {
+    0% {
+        font-size: 7rem;
+        white-space: nowrap;
+        position: relative;
+        top: 450px;
+    }
+
+    100% {
+        position: relative;
+        top: 0px;
     }
 }
 
-body > * {
-    padding-left : var(--horizontal-space);
-    padding-right : var(--horizontal-space);
-}
+@keyframes resizing-img {
+    0% {
+        position: relative;
+        top: 285px;
+    }
 
-body > header {
-    grid-area: head;
-}
-
-body > nav {
-    grid-area: nav
-}
-
-body > nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-body > main {
-    grid-area: main;
-}
-
-body > footer {
-    grid-area: foot;
-}
-
-header, footer {
-    padding-top: var(--vertical-space);
-    padding-bottom: var(--vertical-space);
-}
-
-header h1, footer h1 {
-    margin: 0;
-}
-
-/* <------- About Page CSS -------> */
-body#about img {
-    height: 15em;
-    display: inline;
-    margin-right: var(--horizontal-space);
-}
-
-@media screen and (min-width: 25em) {
-    body#about img {
-        float: left;
-        margin-bottom: var(--vertical-space);
+    100% {
+        position: relative;
+        top: 0px;
     }
 }
 
-/* <------- Portfolio Page CSS -------> */
-body#portfolio ul#portfolioItems {
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    flex: 1;
-    list-style-type: none;
-    padding: 0;
-}
+@keyframes resizing-text {
+    0% {
+        position: relative;
+        top: 70px;
+    }
 
-@media screen and (min-width: 25em){
-    body#portfolio ul#portfolioItems li {
-        flex-basis: 48%;
-        padding-right: 2%;
+    100% {
+        position: relative;
+        top: 0px;
     }
 }
 
-body#portfolio ul#portfolioItems li img {
-    max-width: 50%;
-    margin-left: -0.05em;
-}
+@keyframes fade-in-footer {
+    0% {
+        color: #f0d0c7;
+    }
 
-/* <------- Resume Page CSS -------> */
-
-/* <------- For Javascript -------> */
-.transition {
-    transition: color 0.9s;
-    color: black;
+    100% {
+        color: #9e5646;
+    }
 }

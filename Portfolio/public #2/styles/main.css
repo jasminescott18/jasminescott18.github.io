@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@300&display=swap');
+
+/* <------- Universal CSS -------> */
+:root {
+    --vertical-space: 2rem;
+    --horizontal-space: 3rem;
+
+    --light-color: #A65D85;
+    --dark-color: #68328C;
+    --heading-color: #D9D2D0;
+    --contrast-color: #BF7463;
+    
+    color: var(--heading-color);
+}
+
+body {
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(282deg, rgba(100, 58, 138, 0.5) 0%, rgba(100, 58, 138, 0.5) 14.286%,
+    rgba(125, 75, 135, 0.5) 14.286%, rgba(125, 75, 135, 0.5) 28.572%,rgba(150, 92, 132, 0.5) 28.572%,
+     rgba(150, 92, 132, 0.5) 42.858%,rgba(176, 109, 129, 0.5) 42.858%, rgba(176, 109, 129, 0.5) 57.144%,
+     rgba(201, 126, 125, 0.5) 57.144%, rgba(201, 126, 125, 0.5) 71.43%,rgba(226, 143, 122, 0.5) 71.43%,
+      rgba(226, 143, 122, 0.5) 85.716%,rgba(251, 160, 119, 0.5) 85.716%, rgba(251, 160, 119, 0.5) 100.002%),
+      linear-gradient(247deg, rgb(86, 8, 174) 0%, rgb(86, 8, 174) 14.286%,rgb(101, 26, 154) 14.286%, 
+      rgb(101, 26, 154) 28.572%,rgb(117, 43, 135) 28.572%, rgb(117, 43, 135) 42.858%,rgb(132, 61, 115) 42.858%, 
+      rgb(132, 61, 115) 57.144%,rgb(147, 79, 95) 57.144%, rgb(147, 79, 95) 71.43%,rgb(163, 96, 76) 71.43%,
+       rgb(163, 96, 76) 85.716%,rgb(178, 114, 56) 85.716%, rgb(178, 114, 56) 100.002%);
+    
+}
+
+
+h1, h2, h3{
+    line-height: 1.2;
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: var(--body-color);
+    text-decoration-color: var(--light-color);
+}
+
+a:hover{
+    color: var(--dark-color);
+    text-decoration-color: var(--dark-color);
+}
+
+p {
+    max-width: 50em;
+    margin: 0px 10px 0px
+}
+
+/* All of the pages use the CSS Grid-System for layout.
+The body acts as the Grid Container, with the children serving
+as the Grid Items. */
+body {
+
+    /* Where the CSS-layout gets defined*/
+    display: grid; 
+    /* Specifies the layout using the named grid items */
+    grid-template-areas: "head head"
+                          "nav nav"
+                          "main main"
+                          "foot foot";
+    /* Defines the Containers's number of columns/rows and optionally the width of each column */
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto auto 1fr auto;
+
+}
+
+
+@media screen and (min-width: 25em){
+    body {
+        grid-template-areas: "head head"
+                              "nav main"
+                              "foot foot";
+        grid-template-rows: auto 1fr auto;
+    }
+}
+
+body > * {
+    padding-left : var(--horizontal-space);
+    padding-right : var(--horizontal-space);
+}
+
+body > header {
+    grid-area: head;
+}
+
+body > nav {
+    grid-area: nav
+}
+
+body > nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+body > main {
+    grid-area: main;
+}
+
+body > footer {
+    grid-area: foot;
+}
+
+header, footer {
+    padding-top: var(--vertical-space);
+    padding-bottom: var(--vertical-space);
+}
+
+header h1, footer h1 {
+    margin: 0;
+}
+
+/* <------- About Page CSS -------> */
+body#about img {
+    height: 15em;
+    display: inline;
+    margin-right: var(--horizontal-space);
+}
+
+@media screen and (min-width: 25em) {
+    body#about img {
+        float: left;
+        margin-bottom: var(--vertical-space);
+    }
+}
+
+/* <------- Portfolio Page CSS -------> */
+body#portfolio ul#portfolioItems {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 25em){
+    body#portfolio ul#portfolioItems li {
+        flex-basis: 48%;
+        padding-right: 2%;
+    }
+}
+
+body#portfolio ul#portfolioItems li img {
+    max-width: 50%;
+    margin-left: -0.05em;
+}
+
+/* <------- Resume Page CSS -------> */
+
+/* <------- For Javascript -------> */
+.transition {
+    transition: color 0.9s;
+    color: black;
+}
+
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 20px); }
+    100%   { transform: translate(0, -0px); }   
+}
